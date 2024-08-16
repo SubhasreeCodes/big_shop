@@ -37,6 +37,9 @@
     <!-- Include the popular_product slider partial -->
     @include('frontend.slider.popular_product.type1')
 
+    <!-- Include the daily_best_sells slider partial -->
+    @include('frontend.slider.daily_best_sells.type1')
+
 
     </main>    
 
