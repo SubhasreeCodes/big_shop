@@ -6,4 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 Route::get('/forget_password',[AuthController::class,'forget_password'])->name('home.forget_password');
+Route::get('/home',[HomeController::class,'home'])->name('home.index');
