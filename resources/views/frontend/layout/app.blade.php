@@ -28,6 +28,10 @@
     <!-- Include the Slider partial -->
     @include('frontend.slider.type1')
 
+    <!-- Include the Featured_categories slider partial -->
+    @include('frontend.slider.featured_categories.type1')
+
+
     </main>    
 
     @yield('content')
