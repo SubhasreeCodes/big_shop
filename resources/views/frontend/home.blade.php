@@ -1,1 +1,12 @@
-<h1>home page.</h2>
+@extends('frontend.layout.app')
+
+@section('title')
+
+home page
+
+@endsection
+
+@section('content')
+
+
+@endsection
