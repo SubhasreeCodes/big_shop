@@ -14,6 +14,9 @@
 </head>
 <body>
 
+    <!-- Include the modal partial -->
+    @include('frontend.modal.type1')
+
     <!-- Include the Header partial -->
     @include('frontend.layout.header')
 
