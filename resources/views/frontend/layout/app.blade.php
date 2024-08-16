@@ -28,7 +28,7 @@
     <!-- Include the Slider partial -->
     @include('frontend.slider.type1')
 
-</main>    
+    </main>    
 
     @yield('content')
 
