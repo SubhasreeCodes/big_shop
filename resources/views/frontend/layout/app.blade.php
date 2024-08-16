@@ -34,6 +34,9 @@
     <!-- Include the banner slider partial -->
     @include('frontend.slider.banner.type1')
 
+    <!-- Include the popular_product slider partial -->
+    @include('frontend.slider.popular_product.type1')
+
 
     </main>    
 
