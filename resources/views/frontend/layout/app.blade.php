@@ -40,6 +40,9 @@
     <!-- Include the daily_best_sells slider partial -->
     @include('frontend.slider.daily_best_sells.type1')
 
+    <!-- Include the deal_of_the_day slider partial -->
+    @include('frontend.slider.deal_of_the_day.type1')
+
 
     </main>    
 
