@@ -48,7 +48,10 @@
             <div class="row">
                 <!-- include the top_selling slider partial -->
                 @include('frontend.slider.top_selling.type1')
-            </div>
+
+                <!-- include the trending_products slider partial -->
+                @include('frontend.slider.trending_products.type1')
+            </div>                     
         </div>
     </section>    
 
