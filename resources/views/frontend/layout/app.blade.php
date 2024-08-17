@@ -43,6 +43,15 @@
     <!-- Include the deal_of_the_day slider partial -->
     @include('frontend.slider.deal_of_the_day.type1')
 
+    <section class="section-padding mb-30">
+        <div class="container">
+            <div class="row">
+                <!-- include the top_selling slider partial -->
+                @include('frontend.slider.top_selling.type1')
+            </div>
+        </div>
+    </section>    
+
 
     </main>    
 
