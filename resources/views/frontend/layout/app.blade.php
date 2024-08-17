@@ -25,6 +25,14 @@
 
     <main class="main">
 
+    @if(Request::is('login'))
+
+        @yield('content')
+
+    @elseif(Request::is('/'))
+
+   
+
     <!-- Include the Slider partial -->
     @include('frontend.slider.type1')
 
@@ -61,10 +69,10 @@
         </div>
     </section>    
 
+    @endif
 
     </main>    
 
-    @yield('content')
 
     <!-- Include the Footer partial -->
     @include('frontend.layout.footer')
