@@ -51,6 +51,9 @@
 
                 <!-- include the trending_products slider partial -->
                 @include('frontend.slider.trending_products.type1')
+
+                <!-- include the recently_added slider partial -->
+                @include('frontend.slider.recently_added.type1')
             </div>                     
         </div>
     </section>    
