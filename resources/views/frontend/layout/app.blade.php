@@ -54,6 +54,9 @@
 
                 <!-- include the recently_added slider partial -->
                 @include('frontend.slider.recently_added.type1')
+
+                <!-- include the top_rated slider partial -->
+                @include('frontend.slider.top_rated.type1')
             </div>                     
         </div>
     </section>    
