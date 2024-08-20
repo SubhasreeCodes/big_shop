@@ -50,4 +50,9 @@ class HomeController extends Controller
     {
         return view('frontend/auth/purchase_guide');
     }
+
+    public function about(Request $request)
+    {
+        return view('frontend/auth/about');
+    }
 }

@@ -17,4 +17,5 @@ Route::get('/my_account',[HomeController::class,'my_account'])->name('home.my_ac
 Route::get('/page_terms',[HomeController::class,'page_terms'])->name('home.page_terms');
 Route::get('/privacy_policy',[HomeController::class,'privacy_policy'])->name('home.privacy_policy');
 Route::get('/purchase_guide',[HomeController::class,'purchase_guide'])->name('home.purchase_guide');
+Route::get('/about',[HomeController::class,'about'])->name('home.about');
 
