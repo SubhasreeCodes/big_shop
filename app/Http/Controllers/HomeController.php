@@ -45,4 +45,9 @@ class HomeController extends Controller
     {
         return view('frontend/auth/privacy_policy');
     }
+
+    public function purchase_guide(Request $request)
+    {
+        return view('frontend/auth/purchase_guide');
+    }
 }
