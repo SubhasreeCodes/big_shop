@@ -25,7 +25,7 @@
 
     <main class="main">
 
-    @if(Request::is('login')|| Request::is('register')||Request::is('forget_password')||Request::is('reset_password'))
+    @if(Request::is('login')|| Request::is('register')||Request::is('forget_password')||Request::is('reset_password')||Request::is('my_account'))
 
         @yield('content')
 
