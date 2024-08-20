@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('frontend/auth/my_account');
     }
+
+    public function page_terms(Request $request)
+    {
+        return view('frontend/auth/page_terms');
+    }
 }
