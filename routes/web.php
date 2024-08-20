@@ -17,4 +17,5 @@ Route::get('/page_terms',[AuthController::class,'page_terms'])->name('home.page_
 Route::get('/privacy_policy',[AuthController::class,'privacy_policy'])->name('home.privacy_policy');
 Route::get('/purchase_guide',[AuthController::class,'purchase_guide'])->name('home.purchase_guide');
 Route::get('/about',[AuthController::class,'about'])->name('home.about');
+Route::get('/error_page',[AuthController::class,'error_page'])->name('home.error_page');
 

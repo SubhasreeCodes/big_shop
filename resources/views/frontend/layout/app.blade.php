@@ -25,7 +25,7 @@
 
     <main class="main">
 
-    @if(Request::is('login')|| Request::is('register')||Request::is('forget_password')||Request::is('reset_password')||Request::is('my_account')||Request::is('page_terms')||Request::is('privacy_policy')||Request::is('purchase_guide')||Request::is('about'))
+    @if(Request::is('login')|| Request::is('register')||Request::is('forget_password')||Request::is('reset_password')||Request::is('my_account')||Request::is('page_terms')||Request::is('privacy_policy')||Request::is('purchase_guide')||Request::is('about')||Request::is('error_page'))
 
         @yield('content')
 

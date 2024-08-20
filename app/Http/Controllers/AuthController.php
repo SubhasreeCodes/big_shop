@@ -55,4 +55,9 @@ class AuthController extends Controller
     {
         return view('frontend/auth/about');
     }
+
+    public function error_page(Request $request)
+    {
+        return view('frontend/error/error_page');
+    }
 }
