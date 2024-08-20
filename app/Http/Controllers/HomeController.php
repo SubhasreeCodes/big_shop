@@ -20,4 +20,9 @@ class HomeController extends Controller
     {
         return view('frontend/auth/register');
     }
+
+    public function forget_password(Request $request)
+    {
+        return view('frontend/auth/forget_password');
+    }
 }
