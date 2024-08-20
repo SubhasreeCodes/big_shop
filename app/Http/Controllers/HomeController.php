@@ -15,4 +15,9 @@ class HomeController extends Controller
     {
         return view('frontend/auth/login');
     }
+
+    public function register(Request $request)
+    {
+        return view('frontend/auth/register');
+    }
 }
