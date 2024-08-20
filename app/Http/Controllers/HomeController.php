@@ -40,4 +40,9 @@ class HomeController extends Controller
     {
         return view('frontend/auth/page_terms');
     }
+
+    public function privacy_policy(Request $request)
+    {
+        return view('frontend/auth/privacy_policy');
+    }
 }
