@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -14,6 +16,43 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         return view('frontend/auth/login');
+    }
+
+    public function authenticate(Request $request)
+    {
+
+        // dd($request);
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $email = $request->input('email');
+        
+        $password = $request->input('password');
+
+        if (User::where('email', $email)->exists()) 
+        {
+            $user = User::where('email', $email)->first();
+            
+            Auth::login($user);        
+
+            return redirect('/');
+        }
+        
+        return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email  or password']);
+        
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
     public function register(Request $request)
