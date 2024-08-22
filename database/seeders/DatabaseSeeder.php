@@ -27,6 +27,15 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin')
         ]);
 
+        // Call the CountrySeeder class
+        $this->call(CountrySeeder::class);
+
+        //Call the StateSeeder class
+        $this->call(StateSeeder::class);
+
+        // Call the CitySeeder class
+        $this->call(CitySeeder::class);
+
         $product_labels = [
             [
                 'name' => 'Hot',
