@@ -8,8 +8,12 @@ Route::get('/', function () {
 
 use App\Http\Controllers\AuthController;
 Route::get('/forget_password',[AuthController::class,'forget_password'])->name('home.forget_password');
-Route::get('/home',[AuthController::class,'index'])->name('home.index');
+Route::get('/',[AuthController::class,'index'])->name('home.index');
 Route::get('/login',[AuthController::class,'login'])->name('home.login');
+Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('home.logout');
+
 Route::get('/register',[AuthController::class,'register'])->name('home.register');
 Route::get('/reset_password',[AuthController::class,'reset_password'])->name('home.reset_password');
 Route::get('/my_account',[AuthController::class,'my_account'])->name('home.my_account');
