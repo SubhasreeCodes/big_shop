@@ -21,7 +21,15 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        return view('frontend/auth/login');
+
+        $categories= Category::all();
+        $cities = City::all();
+
+        $data=[
+            'categories'=>$categories,
+            'cities'=>$cities
+        ];
+        return view('frontend/auth/login',$data);
     }
 
     public function authenticate(Request $request)
@@ -74,7 +82,8 @@ class AuthController extends Controller
         // Initialize data array
         $data = [
             'categories' => $categories,
-            'cities' => $cities,
+            'cities'=>$cities
+            
          ];
         return view('frontend/auth/register',$data);
     }
