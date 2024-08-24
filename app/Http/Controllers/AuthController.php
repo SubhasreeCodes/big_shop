@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\City;
+use App\Models\Category;
+
 class AuthController extends Controller
 {
     public function index(Request $request)
