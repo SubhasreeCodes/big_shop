@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Hash;
 
 use App\Models\City;
 use App\Models\Category;
@@ -60,7 +61,83 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        return view('frontend/auth/register');
+        // dd($request);
+        // Retrieve all cities for use in the view
+        $cities = City::all();
+
+        // Retrieve all categories for use in the view
+        $categories = Category::all();
+
+
+        // Initialize data array
+        $data = [
+            'categories' => $categories,
+            'cities' => $cities,
+         ];
+        return view('frontend/auth/register',$data);
+    }
+
+    public function store(Request $request)
+    {
+        try 
+        {
+            $request->validate([
+                'email' => 'required',
+                'password' => 'required',
+                'name' => 'required',
+                'password' => 'required',
+                'confirmPassword' => 'required',
+                'phone' => 'required',
+                'address' => 'required',
+                'pincode' => 'required',
+                'country' => 'required',
+                'captcha' => 'required'
+            ]);
+    
+            // Check if validation fails
+            // if ($validator->fails()) {
+            //     return redirect()->back()->withErrors($validator)->withInput();
+            // }
+    
+            // dd($request);
+    
+            $user = User::create([
+                'name' => $request->input('name'),
+                'gender' => $request->input('gender'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+                'phone' => $request->input('phone'),
+                'address' => $request->input('address'),
+                'pincode' => $request->input('pincode'),
+                'country' => $request->input('country'),
+            ]);
+
+            $selectedRole = Role::where('name', 'Customer')->first();
+
+            // dd($request->input('occupation'));
+            // dd($selectedRole);
+            
+            $user->assignRole($selectedRole->name);
+
+
+            // Call the sendRegisterMail function to send the email using class name(Authcontroller)
+            AuthController::sendRegisterMail($request);
+
+            // Register successful, set success message            
+            $request->session()->flash('success_message', 'User registered successfully');
+    
+            // Redirect or return response
+            return redirect()->route('home.login')->with('success', 'Registration successful!');  
+            
+
+        } 
+        catch (ValidationException $e) {
+            // return response()->json(['error' => $e->validator->errors()], 200);
+
+            // Validation failed, return validation errors
+            return redirect()->back()->withErrors($e->validator->errors())->withInput();
+            // dump($e->validator->errors());
+        }
     }
 
     public function forget_password(Request $request)

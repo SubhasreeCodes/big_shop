@@ -18,6 +18,8 @@ Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('aut
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('home.logout');
 
+Route::post('/store', [AuthController::class,'store'])->name('store');
+
 Route::get('/register',[AuthController::class,'register'])->name('home.register');
 
 Route::get('/reset_password',[AuthController::class,'reset_password'])->name('home.reset_password');
