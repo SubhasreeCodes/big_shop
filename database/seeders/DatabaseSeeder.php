@@ -8,6 +8,8 @@ use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Hash;
 
+use Spatie\Permission\Models\Role;
+
 use App\Models\ProductLabel;
 use App\Models\ProductTag;
 use App\Models\Category;
@@ -27,6 +29,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin')
         ]);
 
+        Role::create(['name' => 'Customer']);
+
         // Call the CountrySeeder class
         $this->call(CountrySeeder::class);
 
@@ -36,138 +40,17 @@ class DatabaseSeeder extends Seeder
         // Call the CitySeeder class
         $this->call(CitySeeder::class);
 
-        $product_labels = [
-            [
-                'name' => 'Hot',
-                'color' => '#e74c3c'
-            ],
-            [
-                'name' => 'New',
-                'color' => '#2ecc71'
-            ],
-            [
-                'name' => 'Sale',
-                'color' => '#8e44ad'
-            ]
-        ];
+        // Call the ProductSeeder class
+        $this->call(ProductLabelSeeder::class);
 
-        foreach ($product_labels as $row) {
-            ProductLabel::create($row);
-        }
+        // Call the ProductTagSeeder
+        $this->call(ProductTagSeeder::class);
 
-        $product_tags = [
-            [
-                'name' => 'Hand bag'
-            ],
-            [
-                'name' => 'Cloths'
-            ],
-            [
-                'name' => 'Shoes'
-            ],
-            [
-                'name' => 'Bags'
-            ],
-            [
-                'name' => 'Wallet'
-            ]
-        ];
-
-        foreach ($product_tags as $row) {
-            ProductTag::create($row);
-        }
+        //Call the CategorySeeder
+        $this->call(CategorySeeder::class);
         
-        $categories = [
-            ['name' => 'Fresh Produce'],
-            ['name' => 'Dairy and Eggs'],
-            ['name' => 'Meat and seafoods'],
-            ['name' => 'Bakery'],
-            ['name' => 'Pantry Staples'],
-            ['name' => 'Beverages'],
-            ['name' => 'Frozen Foods'],
-            ['name' => 'Snacks'],
-            ['name' => 'Health and Wellness'],
-            ['name' => 'Household Supplies'],
-            ['name' => 'Personal Care'],
-            ['name' => 'Baby Products'],
-            ['name' => 'Pet Supplies'],
-            ['name' => 'International Foods'],
-        ];
+        // Call the SubCategorySeeder
+        $this->call(SubCategorySeeder::class);
 
-        foreach ($categories as $row) {
-            Category::create($row);
-        }
-
-        $sub_categories = [
-            [
-                'name' => 'Fruits',
-                'Category_id' => 1
-            ],
-            [
-                'name' => 'Vegetables',
-                'Category_id' => 1
-            ],
-            [
-                'name' => 'Fresh herbs',
-                'Category_id' => 1
-            ],
-            [
-                'name' => 'Milk',
-                'Category_id' => 2
-            ],
-            [
-                'name' => 'Cheese',
-                'Category_id' => 2
-            ],
-            [
-                'name' => 'Yogurt',
-                'Category_id' => 2
-            ],
-            [
-                'name' => 'Eggs',
-                'Category_id' => 2
-            ],
-            [
-                'name' => 'Butter and Margarine',
-                'Category_id' => 2
-            ],
-            [
-                'name' => 'Fresh Meat (beef, pork, chicken)',
-                'Category_id' => 3
-            ],
-            [
-                'name' => 'Seafood (fish, shrimp, shellfish)',
-                'Category_id' => 3
-            ],
-            [
-                'name' => 'Deli meats',
-                'Category_id' => 3
-            ],
-            [
-                'name' => 'Packaged meat',
-                'Category_id' => 4
-            ],
-            [
-                'name' => 'Bread',
-                'Category_id' => 4
-            ],
-
-            [
-                'name' => 'Bread',
-                'Category_id' => 4
-            ],
-            [
-                'name' => 'Bread',
-                'Category_id' => 4
-            ],
-            [
-                'name' => 'Bread',
-                'Category_id' => 4
-            ],
-            [
-                'name' => 'Bread',
-                'Category_id' => 4
-            ],
-        ];
     }
 }
