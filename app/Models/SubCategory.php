@@ -27,7 +27,7 @@ class SubCategory extends Model
         'current_qty',
         'reorder_level',
         'company_id',
-        'stock_category_id',
+        'category_id',
     
     ];
 
@@ -38,7 +38,7 @@ class SubCategory extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'stock_category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function getImagePath()

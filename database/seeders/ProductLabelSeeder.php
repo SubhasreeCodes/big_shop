@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\ProductLabel;
+
 class ProductLabelSeeder extends Seeder
 {
     /**
@@ -27,7 +29,7 @@ class ProductLabelSeeder extends Seeder
             ]
         ];
 
-        foreach ($product_labels as $row) {
+        foreach($product_labels as $row) {
             ProductLabel::create($row);
         }
     }

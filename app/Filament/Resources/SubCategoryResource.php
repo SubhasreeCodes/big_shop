@@ -55,7 +55,7 @@ class SubCategoryResource extends Resource
                 Forms\Components\TextInput::make('company_id')
                     ->numeric()
                     ->default(null),
-                Forms\Components\TextInput::make('stock_category_id')
+                Forms\Components\TextInput::make('category_id')
                     ->numeric()
                     ->default(null),
             ]);
@@ -92,7 +92,7 @@ class SubCategoryResource extends Resource
                 Tables\Columns\TextColumn::make('company_id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('stock_category_id')
+                Tables\Columns\TextColumn::make('category_id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

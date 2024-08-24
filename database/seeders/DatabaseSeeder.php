@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 use Spatie\Permission\Models\Role;
 
-use App\Models\ProductLabel;
-use App\Models\ProductTag;
-use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Hash;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\City;
 use App\Models\Category;
+
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
