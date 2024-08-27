@@ -34,8 +34,11 @@ Route::get('/about',[AuthController::class,'about'])->name('home.about');
 
 Route::get('/error_page',[AuthController::class,'error_page'])->name('home.error_page');
 
+Route::post('/send-register-mail', [AuthController::class, 'sendRegisterMail']);
+
 //------------------------------------------------------------------------------------------------------------------
 
 use App\Http\Controllers\HomeController;
 
 Route::get('/',[HomeController::class,'index'])->name('home.index');
+

@@ -7,6 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Message;
+
 use App\Models\City;
 use App\Models\Category;
 
@@ -184,5 +187,34 @@ class AuthController extends Controller
     public function error_page(Request $request)
     {
         return view('frontend/error/error_page');
+    }
+
+    public function sendRegisterMail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'name' => 'required|string|max:255',
+        ]);
+
+        // Get the validated data
+        $email = $request->input('email');
+        $name = $request->input('name');
+
+        // Define the data for the email
+        $data = [
+            'name' => $name,
+            'email' => $email
+        ];
+
+        // Send the registration email using a Mailable class
+        Mail::send('frontend.auth.email.register', $data, function($message) use ($email, $name) {
+            $message->to($email, $name)
+                    ->subject('Welcome to Our Platform');
+        });
+
+        // Return a response
+        return response()->json([
+            'message' => 'Registration email sent successfully!'
+        ], 200);
     }
 }
