@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('current_qty')->nullable();
             $table->integer('reorder_level')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
-            $table->unsignedBigInteger('stock_category_id')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }

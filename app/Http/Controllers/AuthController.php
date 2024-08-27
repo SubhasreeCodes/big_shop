@@ -14,11 +14,6 @@ use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
-    public function index(Request $request)
-    {
-        return view('frontend/home');
-    }
-
     public function login(Request $request)
     {
 
