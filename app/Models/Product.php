@@ -55,4 +55,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Label::class, 'product_label_id');
     }
+
+    public function productCompany()
+    {
+        return $this->belongsToMany(Company::class,'product_companies');
+    }
 }
